@@ -1,7 +1,6 @@
 ![gradeMagic_logo](src/img/github_logo.png)
-![](https://flat.badgen.net/github/stars/micromatch/micromatch)
-![](https://flat.badgen.net/github/forks/micromatch/micromatch)
-![](https://flat.badgen.net/github/license/micromatch/micromatch)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://typescriptlang.org)
 
 ## Made with Lovable by love
 
@@ -15,17 +14,23 @@ The only requirement at the moment is having Node.js & npm installed - [install 
 
 Follow these steps:
 
+### Step 1: Clone the repository using the project's Git URL.
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
 git clone https://github.com/mohadevx/gradeMagic.git
+```
 
-# Step 2: Navigate to the project directory.
+### Step 2: Navigate to the project directory.
+```sh
 cd gradeMagic
+```
 
-# Step 3: Install the necessary dependencies.
+### Step 3: Install the necessary dependencies.
+```sh
 npm i
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Step 4: Start the development server with auto-reloading and an instant preview.
+```sh
 npm run dev
 ```
 
@@ -40,3 +45,5 @@ This project is built with .
 - Tailwind CSS
 
 ## Licence
+
+![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
