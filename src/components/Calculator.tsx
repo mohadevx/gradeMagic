@@ -5,6 +5,7 @@ import CourseEntry, { CourseData } from './CourseEntry';
 import CourseList from './CourseList';
 import AnimatedGPA from './AnimatedGPA';
 import { GradeScale, getGradeValue } from './GradeScale';
+import { setCookie, getCookie } from '@/utils/cookieUtils';
 
 interface CalculatorProps {
   className?: string;
@@ -14,6 +15,26 @@ const Calculator: React.FC<CalculatorProps> = ({ className }) => {
   const [courses, setCourses] = useState<CourseData[]>([]);
   const [gpa, setGpa] = useState(0);
   
+  // Load courses from cookies on initial render
+  useEffect(() => {
+    const savedCourses = getCookie('courses');
+    if (savedCourses) {
+      try {
+        const parsedCourses = JSON.parse(savedCourses);
+        setCourses(parsedCourses);
+      } catch (error) {
+        console.error('Error parsing saved courses:', error);
+      }
+    }
+  }, []);
+  
+  // Save courses to cookies whenever they change
+  useEffect(() => {
+    if (courses.length > 0) {
+      setCookie('courses', JSON.stringify(courses));
+    }
+  }, [courses]);
+  
   // Add a new course
   const handleAddCourse = (course: CourseData) => {
     setCourses(prev => [...prev, course]);
@@ -22,6 +43,14 @@ const Calculator: React.FC<CalculatorProps> = ({ className }) => {
   // Remove a course
   const handleRemoveCourse = (id: string) => {
     setCourses(prev => prev.filter(course => course.id !== id));
+  };
+  
+  // Clear all courses
+  const handleClearCourses = () => {
+    if (window.confirm('Are you sure you want to clear all courses?')) {
+      setCourses([]);
+      setCookie('courses', '');
+    }
   };
   
   // Calculate GPA whenever courses change
@@ -57,6 +86,7 @@ const Calculator: React.FC<CalculatorProps> = ({ className }) => {
             <CourseList 
               courses={courses} 
               onRemoveCourse={handleRemoveCourse} 
+              onClearCourses={handleClearCourses}
             />
           </div>
         </div>

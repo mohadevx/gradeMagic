@@ -33,13 +33,16 @@ interface GradeScaleProps {
 
 const GradeScale: React.FC<GradeScaleProps> = ({ className }) => {
   return (
-    <div className={cn("rounded-xl bg-white/50 p-4 backdrop-blur-sm border border-white/20 shadow-sm", className)}>
+    <div className={cn(
+      "rounded-xl bg-white/50 dark:bg-gray-800/30 p-4 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 shadow-sm", 
+      className
+    )}>
       <h3 className="text-sm font-medium text-muted-foreground mb-2">Grade Scale</h3>
       <div className="grid grid-cols-4 gap-2 text-sm">
         {GRADE_SCALE.map((grade, index) => (
           <div 
             key={grade.letter} 
-            className="flex items-center justify-between p-2 rounded-lg bg-white/70"
+            className="flex items-center justify-between p-2 rounded-lg bg-white/70 dark:bg-gray-800/50"
             style={{ animationDelay: `${index * 50}ms` }}
           >
             <span className="font-medium">{grade.letter}</span>

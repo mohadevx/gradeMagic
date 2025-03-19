@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Calculator from '@/components/Calculator';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   // Refs for animation elements
@@ -31,10 +32,14 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen px-4 py-12 bg-gradient-to-b from-background to-secondary">
+    <div className="min-h-screen px-4 py-12 bg-gradient-to-b from-background to-secondary dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-5xl mx-auto">
-        <header className="text-center mb-16">
-          <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-xs font-medium mb-4">
+        <header className="text-center mb-16 relative">
+          <div className="absolute right-0 top-0">
+            <ThemeToggle />
+          </div>
+          
+          <div className="inline-block px-3 py-1 bg-primary/10 dark:bg-primary/20 rounded-full text-primary text-xs font-medium mb-4">
             Simple • Elegant • Precise
           </div>
           

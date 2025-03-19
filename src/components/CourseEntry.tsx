@@ -40,7 +40,7 @@ const CourseEntry: React.FC<CourseEntryProps> = ({ onAddCourse, className }) => 
     <form 
       onSubmit={handleSubmit}
       className={cn(
-        'p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm',
+        'p-6 rounded-2xl bg-white/80 dark:bg-gray-800/30 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 shadow-sm',
         'transition-all duration-300 hover:shadow-md',
         className
       )}
@@ -58,7 +58,7 @@ const CourseEntry: React.FC<CourseEntryProps> = ({ onAddCourse, className }) => 
             value={courseName}
             onChange={(e) => setCourseName(e.target.value)}
             placeholder="e.g. Introduction to Computer Science"
-            className="tama-input w-full"
+            className="tama-input w-full dark:bg-gray-800/50 dark:border-gray-700/30 dark:text-white dark:placeholder:text-gray-500"
             required
           />
         </div>
@@ -72,7 +72,7 @@ const CourseEntry: React.FC<CourseEntryProps> = ({ onAddCourse, className }) => 
               id="credits"
               value={credits}
               onChange={(e) => setCredits(Number(e.target.value))}
-              className="tama-input w-full"
+              className="tama-input w-full dark:bg-gray-800/50 dark:border-gray-700/30 dark:text-white"
             >
               {[1, 2, 3, 4, 5, 6].map(credit => (
                 <option key={credit} value={credit}>{credit}</option>
@@ -88,7 +88,7 @@ const CourseEntry: React.FC<CourseEntryProps> = ({ onAddCourse, className }) => 
               id="grade"
               value={grade}
               onChange={(e) => setGrade(e.target.value)}
-              className="tama-input w-full"
+              className="tama-input w-full dark:bg-gray-800/50 dark:border-gray-700/30 dark:text-white"
             >
               {GRADE_SCALE.map(g => (
                 <option key={g.letter} value={g.letter}>
@@ -101,7 +101,7 @@ const CourseEntry: React.FC<CourseEntryProps> = ({ onAddCourse, className }) => 
         
         <button
           type="submit"
-          className="w-full tama-button bg-primary text-white hover:bg-primary/90 mt-2"
+          className="w-full tama-button bg-primary text-white hover:bg-primary/90 mt-2 dark:bg-primary/80 dark:hover:bg-primary/70"
         >
           Add Course
         </button>
